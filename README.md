@@ -1,50 +1,46 @@
-# React + TypeScript + Vite
+# Example: Quantum Coin Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The game is played with a quantum coin, which is in a superposition of heads and tails.
 
-Currently, two official plugins are available:
+### Used [earlold/quantum.js](https://www.npmjs.com/package/@earlold/quantum.js) library
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Alice - Quantum Computer
+Bob - Opponent(Human)
 
-## Expanding the ESLint configuration
+heads = |0>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+tails = |1>
 
-- Configure the top-level `parserOptions` property like this:
+### The rules are simple:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+1. Alice places the coin in a state of her choice (heads or tails on top) in a box that
+   covers the coin. Even by touching the coin, it is impossible to determine which side
+   is up.
+2. Bob reaches into the box and has the choice to flip the coin over or not. Alice cannot
+   see what he is doing.
+3. Alice reaches into the box and performs an operation of her choice (flip or not flip).
+4. The coin is uncovered and the result is read.
+5. If its heads, then Quantum Computer wins. Else, Opponent(Human) wins.
+
+### Important: Alice and Bob don't know the result of the coin until it is uncovered.
+
+The game is implemented using quantum.js.
+
+```typescript
+import { getQuantumCoinGameResult, quantumCoinGame } from "library";
+
+const res = quantumCoinGame(false);
+console.log(getQuantumCoinGameResult(res));
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Output
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
+Quantum Computer wins
+```
+
+### Links
+
+1. [Playing with a Quantum Computer](https://www.npmjs.com/package/library)
+2. [Quantum Coin Game Wiki](https://en.wikipedia.org/wiki/Quantum_coin_flipping)
+3. [Quantum Coin Game](https://github.com/Qiskit/textbook/blob/main/notebooks/ch-demos/coin-game.ipynb)
