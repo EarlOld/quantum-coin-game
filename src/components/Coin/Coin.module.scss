@@ -1,0 +1,22 @@
+$coin-front-color: #00B4D8; // Light Blue
+$coin-back-color: #FFD700;  
+
+.coin {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, $coin-front-color 50%, $coin-back-color 50%);
+  animation: spin 2s infinite linear;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}

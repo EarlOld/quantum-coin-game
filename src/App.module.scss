@@ -1,0 +1,29 @@
+$primary-color: #1230AE;
+$secondary-color: #6C48C5;
+$background-color: #FFF7F7;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $background-color;
+  min-height: 100vh;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.title {
+  color: $primary-color;
+}
+
+.text {
+  color: $secondary-color;
+  max-width: 600px;
+}
+
+.buttonGroup {
+  margin-top: 32px;
+  display: flex;
+  gap: 20px;
+}
